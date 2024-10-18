@@ -17,6 +17,7 @@
   import { TEXTS } from '../constants.js';
   import TodoForm from '../components/TodoForm.vue';
   import TodoList from '../components/TodoList.vue';
+  import { generateId, sortTodosByPriority } from '../utils.js';
   
   export default {
     components: {
@@ -31,8 +32,7 @@
     },
     computed: {
       sortedTodos() {
-        const priorities = { critical: 1, moderate: 2, optional: 3 };
-        return this.todos.slice().sort((a, b) => priorities[a.priority] - priorities[b.priority]);
+        return sortTodosByPriority(this.todos);
       },
     },
     mounted() {
@@ -43,7 +43,7 @@
     },
     methods: {
       addTodo(newTodo) {
-        this.todos.push({ id: Date.now(), ...newTodo });
+        this.todos.push({ id: generateId(), ...newTodo });
       },
       removeTodo(id) {
         this.todos = this.todos.filter(todo => todo.id !== id);

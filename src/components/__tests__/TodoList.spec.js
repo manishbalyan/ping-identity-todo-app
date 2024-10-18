@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import TodoList from '@/components/TodoList.vue'; // Adjust path if necessary
 import { describe, it, expect, vi } from 'vitest';
 
-describe('TodoList.vue', () => {
+describe('TodoList', () => {
   const TEXTS = {
     BUTTON_EDIT: 'Edit',
     BUTTON_REMOVE: 'Remove',

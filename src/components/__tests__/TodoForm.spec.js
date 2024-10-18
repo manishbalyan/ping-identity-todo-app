@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import TodoForm from '@/components/TodoForm.vue';
 import { describe, it, expect, vi } from 'vitest';
 
-describe('TodoForm.vue', () => {
+describe('TodoForm', () => {
   it('renders the form inputs correctly', () => {
     const wrapper = mount(TodoForm);
     
